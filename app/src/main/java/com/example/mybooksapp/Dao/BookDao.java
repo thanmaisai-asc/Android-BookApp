@@ -1,10 +1,13 @@
 package com.example.mybooksapp.Dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+
 import com.example.mybooksapp.Model.Book;
+
 import java.util.List;
 
 @Dao
@@ -14,7 +17,7 @@ public interface BookDao {
     void insert(List<Book> books);
 
     @Query("SELECT * FROM Book")
-    List<Book> loadAll();
+    LiveData<List<Book>> loadAll();
 
     @Query("DELETE FROM Book")
     void deleteAll();
