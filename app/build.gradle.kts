@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -37,21 +38,20 @@ android {
 
 dependencies {
 
+    implementation(libs.retrofit)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.glide)
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
-    implementation(libs.compiler)
     implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.lifecycle.extensions)
     implementation(libs.androidx.lifecycle.compiler)
     implementation(libs.junit)
@@ -61,5 +61,9 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+
+}
+configurations.all {
+    exclude(group = "com.intellij", module = "annotations")
 
 }
