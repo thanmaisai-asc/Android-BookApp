@@ -2,11 +2,12 @@ package com.example.mybooksapp.Model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "Book")
+@Entity(tableName = "Book" ,indices = @Index(value = {"id"},unique = true))
 public class Book {
 
     @PrimaryKey(autoGenerate = true)

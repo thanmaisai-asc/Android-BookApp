@@ -12,7 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.mybooksapp.Dao.BookDao;
 import com.example.mybooksapp.Model.Book;
 
-@Database(entities = {Book.class}, version = 1)
+@Database(entities = {Book.class}, version = 2)
 public abstract class BookDatabase extends RoomDatabase {
     private static final String DATABASE_NAME = "BookDatabase";
     public abstract BookDao bookDao();
@@ -23,7 +23,7 @@ public abstract class BookDatabase extends RoomDatabase {
             synchronized (BookDatabase.class) {
                 if (INSTANCE == null) {
                     Callback callback = new Callback();
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), BookDatabase.class, DATABASE_NAME).addCallback(callback)
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), BookDatabase.class, DATABASE_NAME).addCallback(callback).fallbackToDestructiveMigration()
                             .build();
                 }
             }

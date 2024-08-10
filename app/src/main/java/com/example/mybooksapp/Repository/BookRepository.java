@@ -42,7 +42,6 @@ import java.util.List;
 //        }
 //    }
 //}
-
 public class BookRepository {
 
     private final BookDatabase bookDatabase;
@@ -64,7 +63,8 @@ public class BookRepository {
     static class InsertAsyncTask extends AsyncTask<List<Book>, Void, Void> {
         private final BookDao bookDao;
 
-        InsertAsyncTask(BookDatabase bookDatabase) {bookDao = bookDatabase.bookDao();
+        InsertAsyncTask(BookDatabase bookDatabase) {
+            bookDao = bookDatabase.bookDao();
         }
 
         @Override
