@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "book")
-public class book {
+@Entity(tableName = "Book")
+public class Book {
 
     @PrimaryKey(autoGenerate = true)
     private  int bookId;
@@ -32,7 +32,7 @@ public class book {
     @ColumnInfo(name = "Year")
     private String Year;
 
-    public book(int id, String Title, String Publisher, String ISBN, String Year) {
+    public Book(int id, String Title, String Publisher, String ISBN, String Year) {
         this.id = id;
         this.Title = Title;
         this.Publisher = Publisher;
@@ -90,7 +90,7 @@ public class book {
 
     @Override
     public String toString() {
-        return "book{" +
+        return "Book{" +
                 "bookId=" + bookId +
                 ", id=" + id +
                 ", Title='" + Title + '\'' +
